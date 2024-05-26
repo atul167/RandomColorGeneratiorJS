@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height:100px;
+            width:100px;
+            border: 2px solid black;
+           
+        }
+        .container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>  
+    <script>
+        // Function to generate a random color
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            // Construct the color string
+            p="rgb("+r+","+g+","+b+")";
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Get all box elements
+        const boxes=document.querySelectorAll('.box');
+        //boxes is a NodeList
+        // Apply random color to each box
+        // iterating through the boxes Node List through the forEach function using the iterator e 
+        for(let i=0;i<boxes.length;i++){
+            const e=boxes[i];
+            const randomColor = getRandomColor();
+            e.style.backgroundColor=randomColor;
+            boxes[i].textContent=randomColor;
+        }
+    </script>
+</body>
+</html>
